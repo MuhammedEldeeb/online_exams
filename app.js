@@ -1,8 +1,13 @@
 const mysql = require('mysql');
 const express = require('express');
-
+const userController = require('./controllers/user');
 // create an express server
 var app = express();
+app.set('view engine','ejs');
+
+app.use('/assets',express.static('assets'));
+// fire controllers
+userController(app);
 
 
 
